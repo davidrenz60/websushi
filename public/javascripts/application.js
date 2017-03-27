@@ -20,6 +20,10 @@ var App = {
     this.$checkout.show();
   },
 
+  setCartItems: function() {
+    localStorage.setItem('cart', JSON.stringify(this.cartItems.toJSON()));
+  },
+
   createCart: function() {
     this.cartItems = new CartItems();
     this.cartView = new CartView({

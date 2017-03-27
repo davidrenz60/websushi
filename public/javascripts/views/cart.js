@@ -25,14 +25,7 @@ var CartView = Backbone.View.extend({
 
   render: function() {
     this.updateCartQuantity();
-
-    if (this.collection.length === 1) {
-      this.open();
-    } else if (this.collection.length === 0) {
-      this.close();
-    } else {
-      this.writeTemplate();
-    }
+    this.collection.length > 0 ? this.open() : this.close();
   },
 
   writeTemplate: function() {

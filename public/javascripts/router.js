@@ -32,3 +32,5 @@ $(document).on('click', "a[href^='/']", function(e) {
     trigger: true,
   });
 });
+
+$(window).on('unload', App.setCartItems.bind(App));
