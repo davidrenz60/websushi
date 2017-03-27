@@ -1,0 +1,402 @@
+@import "whitespace-reset.css"
+@import 'mixins'
+
+body
+  background: url('/images/background-image.png')
+  margin: 60px 0 0 0
+  font-family: 'Droid Sans', sans-serif
+
+header
+  width: 1000px
+  margin: auto
+  padding: 0 0 40px 0
+  border-bottom: 1px solid colors.border
+  overflow: hidden
+  h1.logo
+    float: left
+    width: 140px
+    height: 30px
+    background: url('/images/logo.png')
+
+main
+  position: relative
+  width: 1000px
+  margin: 0 auto
+
+.button
+  background: colors.cartBg
+  position: relative
+  color: #ffffff
+  display: inline-block
+  &:hover
+    background: colors.cartBgHover
+
+.border
+  &:before
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-top: 14px solid #000;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 14px solid #000;
+
+#cart-icon
+  float: right
+  height: 28px
+  vertical-align: middle
+  line-height: 28px
+  padding: 0 0 0 10px
+  background: #000000
+  text-transform: uppercase
+  font-size: 10px
+  a
+    color: colors.cartIconText
+    text-decoration: none
+    letter-spacing: 1px
+    + a
+      padding: 0 26px 0 28px
+      color: #ffffff
+#cart-total
+  font-size: 14px
+
+#cart
+  display: none
+  height: 122px
+  color: #ffffff
+  ul
+    width: 800px
+    float: left
+    text-align: right
+    font-size: 10px
+    background: #000000
+    li
+      float: left
+      width: 100px
+      a
+        display: inline-block
+        position: relative
+        &:after
+          content: "";
+          display: block;
+          width: 100px;
+          height: 100px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: rgba(0,0,0,0);
+        &:hover:after
+          background-color: colors.menuItemHover
+          background-image: url('/images/remove-icon.png')
+          background-position: 50% 50%
+          background-repeat: no-repeat
+      img
+          width: 100%
+      p
+        padding: 5px 0
+
+#cart-info
+  float: right
+  height: 122px
+  width: 200px
+  box-sizing: border-box
+  padding: 0 0 0 14px
+  background: colors.cartHeaderBg
+  text-transform: uppercase
+  h4
+    color: colors.cartIconText
+    font-size: 10px
+    padding: 20px 0 0 0
+    margin: 0 0 7px 0
+  p
+    font-size: 30px
+
+#cart-control
+  height: 28px
+  line-height: 28px
+  .button:before
+    border-top: 14px solid colors.cartHeaderBg
+    border-left: 14px solid colors.cartHeaderBg
+  a
+    font-size: 10px
+    color: colors.emptyCartText
+    letter-spacing: 1px
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+    + a
+      float: right
+      padding: 0 19px 0 28px
+      color: #ffffff
+      cursor: pointer
+    + a:hover
+      text-decoration: none
+
+#items
+  margin: 20px 0 0 0
+  text-align: center
+  ul
+    overflow: hidden
+  li
+    float: left
+    background: #fff url('/images/item-separator.png') repeat-y right top;
+    margin: 0 0 20px 0
+    a:first-of-type
+      display: block
+      position: relative
+      text-decoration: none
+      &:after
+        content: "";
+        display: block;
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0);
+      &:hover:after
+        background-color: colors.menuItemHover
+        background-image: url('/images/arrow-right.png')
+        background-position: 50% 50%
+        background-repeat: no-repeat
+      &:hover
+        h3
+          color: #000000
+  h3
+    font-size: 21px
+    font-weight: normal
+    color: colors.text
+    padding: 25px 0 5px 0
+
+  p
+    font-size: 17px
+    color: colors.greyText
+    padding: 0 0 20px 0
+  a.add
+    cursor: default
+    display: block
+    font-size: 12px
+    color: colors.redText
+    text-transform: uppercase
+    padding: 15px 0
+    border-top: 1px #eeccec dotted
+    &:hover
+      color: #ffffff
+      background: colors.redText
+      -webkit-transition: color 500ms, background 500ms
+
+#item-info
+  height: 600px;
+  background-image: url('/images/sushi-preview.png')
+  margin: 20px 0 0 0
+  .item-detail
+    height: 200px
+    position: relative
+    top: 200px
+    div
+      display: inline-block
+      vertical-align: top
+    a
+      display: inline-block
+      width: 100px
+      height: 200px
+      background: #000000
+      background-position: 50% 50%
+      background-repeat: no-repeat
+      &:hover
+        background-color: colors.redText
+    a:first-of-type
+      background-image: url('/images/nav-prev.png')
+    a:last-of-type
+      background-image: url('/images/nav-next.png')
+
+#detail
+  width: 400px
+  height: 100%
+  background: #fff url('/images/item-separator.png') repeat-y right top
+  div
+    height: 130px
+  h2
+    font-size: 36px
+    font-weight: normal
+    padding: 30px 0 10px 30px
+    color: colors.infoText
+  p
+    float: left
+    font-size: 12px
+    padding: 0 30px 30px 30px
+    + p
+      cursor: pointer
+      float: right
+      width: 110px
+      height: 30px
+      box-sizing: border-box
+      padding: 0
+      text-align: center
+      font-size: 12px
+      line-height: 30px
+      text-transform: uppercase
+  div + div
+    border-top: 1px dotted #ececec
+    box-sizing: border-box
+    width: 100%
+    padding: 20px 30px
+    height: 70px
+    p:first-of-type
+      font-size: 30px
+      color: #787878
+      padding: 0 0 0 0
+
+
+#nutrition
+  width: 200px
+  height: 100%
+  box-sizing: border-box
+  background: #ffffff
+  padding: 30px 20px 0 20px
+  p
+    font-weight: bold
+    font-size: 13px
+    color: #3c3c3c
+    padding: 0 0 20px 0
+  table
+    font-size: 12px
+    border-spacing: 0
+    td
+      color: #787878
+      width: 50%
+    td + td
+      text-align: right
+      color: #2e2e2e
+
+#checkout
+  position: absolute
+  top: 0
+  width: 1000px
+  margin: 0 auto
+  h1
+    font-size: 36px
+    color: #2e2e2e;
+    padding: 0 0 50px 0
+
+#checkout-list
+  padding: 50px 100px
+  background: #ffffff
+  input[type=number]::-webkit-inner-spin-button
+    -webkit-appearance: none
+  input[type="number"]
+    width: 130px
+    height: 24px
+    color: #787878;
+    padding: 0 0 0 5px
+    outline: none
+    border: 1px solid #dadada;
+
+  table
+    width: 100%
+    border-spacing: 0
+    border-collapse: collapse
+    tr
+      border-bottom: 1px solid #dadada
+    th
+      text-align: left
+      font-size: 13px
+      text-transform: uppercase
+      color: #4a4a4a
+      &:last-of-type
+        text-align: right
+    td
+      padding: 0
+      &:last-of-type
+        font-size: 21px
+        color:#2e2e2e;
+        text-align: right
+      #number-arrows
+        float: none
+        right: 22px
+        width: 22px
+        height: 24px
+        vertical-align: middle
+        display: inline-block
+        color: #787878
+        font-size: 9px
+        cursor: pointer
+        border: 1px solid #dadada
+        border-left: none
+        &:hover
+          background: colors.inputHover
+        #up, #down
+          position: relative
+          left: 6px
+          width: 22px
+          height: 13px
+          &:hover
+            color: #ffffff
+      div
+        float: left
+        height: 100px
+        width: 200px
+        overflow: hidden
+        + p
+          display: inline-block
+          font-size: 21px
+          color: #2e2e2e
+          position: relative
+          top: 37px
+          left: 40px
+
+
+
+#checkout-total
+  margin: 25px 0 0 0
+  text-transform: uppercase
+  text-align: right
+  p
+    font-size: 10px
+    color: #787878
+    display: inline-block
+    + p
+     font-size: 36px
+     color: #2e2e2e
+     padding: 0 0 0 13px
+
+#checkout-buttons
+  margin: 60px 0 0 0
+  text-transform: uppercase
+  text-align: right
+  a
+    text-decoration: none
+    font-size: 13px
+    color: colors.redText
+    &:first-of-type:hover
+      text-decoration: underline
+    + a
+      margin: 0 0 0 13px
+      color: #ffffff
+      padding: 15px 25px
+
+
+#backdrop-top
+  height: 50px
+  background: url('/images/sushi-preview.png')
+#backdrop-bottom
+  height: 50px
+  background: url('/images/sushi-preview.png') 0 100%
+
+footer
+  width: 1000px
+  margin: 10px auto 60px auto
+  font-size: 12px
+  color: #999
+  border-top: 1px dotted #a6a6a6
+  p
+    padding: 10px 0 0 0
+  a
+    color: colors.redText
+    text-decoration: none
+
+

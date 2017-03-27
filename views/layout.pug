@@ -1,0 +1,32 @@
+include /_mixins
+
+doctype html
+html
+  head
+    title= Websushi
+    +font_link
+    +stylesheet_link_tag('application')
+    +javascript_include_tag('vendor/all')
+    +javascript_include_tag('handlebars_templates')
+  body
+    header
+      a(href="/")
+        h1.logo
+      div#cart-icon
+        a(href="/") Shopping Cart
+        a(href="/" class="button border") <span id="cart-total">0</span> Items</a>
+    main
+      block content
+    footer
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        a(href="#")  Duis quis arcu gravida
+      p  Praesent gravida condimentum libero ut porta. Mauris vehicula lorem vel elit sagittis, in ultrices metus placerat
+
+
+    +javascript_include_tag('application')
+    +javascript_include_tag('models/item')
+    +javascript_include_tag('collections/items', 'collections/cartItems')
+    +javascript_include_tag('views/items', 'views/itemInfo', 'views/cart', 'views/checkout')
+    script(type="text/javascript").
+      App.items = new Items(!{JSON.stringify(items)});
+    +javascript_include_tag('router')

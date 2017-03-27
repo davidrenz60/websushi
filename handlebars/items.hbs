@@ -1,0 +1,12 @@
+<ul>
+  {{#each items}}
+  <li data-id="{{id}}">
+    <a href="/menu/{{id}}">
+      <img src="{{image}}">
+      <h3>{{name}}</h3>
+      <p>${{price}}</p>
+    </a>
+    <a class="add">+ add to cart</a>
+  </li>
+  {{/each}}
+</ul>

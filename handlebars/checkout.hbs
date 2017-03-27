@@ -1,0 +1,42 @@
+<div id="backdrop-top"></div>
+<div id="checkout-list">
+  <h1>Order Details</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each items}}
+      <tr>
+        <td>
+          <div>
+            <img src="{{image}}">
+          </div>
+          <p>{{name}}</p>
+        </td>
+        <td>
+          <input type="number" value={{format_price quantity}} data-id={{id}}>
+          <div id="number-arrows">
+            <div id="up">&#9650;</div>
+            <div id="down">&#9660;</div>
+          </span>
+        </td>
+        <td>${{format_price price}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div id="checkout-total">
+    <p>total :</p>
+    <p>${{format_price total}}</p>
+  </div>
+  <div id="checkout-buttons">
+    <a href="#" class="cancel">Cancel Order</a>
+    <a href="#" class="button order">Order Now!</a>
+  </div>
+</div>
+<div id="backdrop-bottom"></div>

@@ -1,0 +1,16 @@
+<ul>
+  {{#each items}}
+  <li>
+    <a href="#" class="delete" data-id="{{id}}"><img src="{{image}}"></a>
+    <p><span>{{quantity}}</span> x <span>${{format_price price}}</span></p>
+  </li>
+  {{/each}}
+</ul>
+<div id="cart-info">
+  <h4>Your<br>Shopping Cart</h4>
+  <p>${{format_price total}}</p>
+  <div id="cart-control">
+    <a href="#" class="empty">Empty Cart</a>
+    <a href="/checkout" class="button border">Checkout></a>
+  </div>
+</div>
