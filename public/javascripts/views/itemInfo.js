@@ -13,7 +13,7 @@ var ItemInfoView = Backbone.View.extend({
 
   addToCart: function(e) {
     e.preventDefault();
-    this.model.collection.addItem(this.model);
+    App.cartItems.addItem(this.model);
   },
 
   render: function() {
