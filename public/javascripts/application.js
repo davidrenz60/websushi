@@ -26,10 +26,7 @@ var App = {
 
   createCart: function() {
     this.cartItems = new CartItems();
-    this.cartView = new CartView({
-      collection: this.cartItems,
-    });
-
+    this.cartView = new CartView({ collection: this.cartItems });
     this.checkout = new CheckoutView({ collection: this.cartItems });
   },
 };

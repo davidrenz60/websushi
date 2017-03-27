@@ -39,16 +39,16 @@ var CartView = Backbone.View.extend({
   destroy: function(e) {
     e.preventDefault();
     var id = $(e.target).data('id');
-    this.collection.removeItem(id);
+    this.collection.remove(id);
   },
 
   emptyCart: function(e) {
     e.preventDefault();
-    this.collection.empty();
+    this.collection.reset();
   },
 
   initialize: function() {
     this.render();
-    this.listenTo(this.collection, 'cart_updated cart_empty change', this.render);
+    this.listenTo(this.collection, 'change update reset', this.render);
   }
 });
