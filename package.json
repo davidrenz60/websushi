@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "nodemon ./bin/www"
   },
   "engines": {
     "node": "6.9.1"
@@ -28,5 +28,5 @@
     "grunt-contrib-uglify": "^2.2.0",
     "grunt-contrib-watch": "^1.0.0",
     "nodemon": "^1.11.0"
-  },
+  }
 }
