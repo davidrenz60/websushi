@@ -16,19 +16,6 @@ var ItemInfoView = Backbone.View.extend({
     App.cartItems.addItem(this.model);
   },
 
-  render: function() {
-    var model = this.model.toJSON();
-    model.nextId = this.model.nextId();
-    model.prevId = this.model.prevId();
-
-    this.$el.html(this.template(model));
-    App.$menu.html(this.$el);
-
-    if (App.lastId) {
-      this.slide();
-    }
-  },
-
   navigate: function(e) {
     e.preventDefault();
     App.lastId = this.model.get('id');
@@ -45,6 +32,17 @@ var ItemInfoView = Backbone.View.extend({
       $itemDetail.toggle('slide', {direction: 'right', duration: this.duration});
       $itemDetail.toggle('slide', {direction: 'left', duration: this.duration});
     }
+  },
+
+  render: function() {
+    var model = this.model.toJSON();
+    model.nextId = this.model.nextId();
+    model.prevId = this.model.prevId();
+
+    this.$el.html(this.template(model));
+    App.$menu.html(this.$el);
+
+    App.lastId && this.slide();
   },
 
   initialize: function() {
