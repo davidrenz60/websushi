@@ -1,6 +1,5 @@
 var ItemInfoView = Backbone.View.extend({
   template: JST.info,
-  partial: JST.itemDetail,
   duration: 100,
 
   attributes: {
@@ -9,11 +8,12 @@ var ItemInfoView = Backbone.View.extend({
 
   events: {
     'click p.add': 'addToCart',
+    'click a.nav': 'navigate',
   },
 
   addToCart: function(e) {
     e.preventDefault();
-    App.trigger('add_to_cart', this.model);
+    this.model.collection.addItem(this.model);
   },
 
   render: function() {
@@ -21,39 +21,33 @@ var ItemInfoView = Backbone.View.extend({
     model.nextId = this.model.nextId();
     model.prevId = this.model.prevId();
 
-    if (this.viewRendered()) {
-      this.renderPartial(model);
-      this.navigate();
-      return;
-    }
-
     this.$el.html(this.template(model));
     App.$menu.html(this.$el);
-  },
 
-  renderPartial: function(model) {
-    App.$menu.find('.item-detail').html(this.partial(model));
-  },
-
-  viewRendered: function() {
-    return App.$menu.find('#item-info').length > 0;
-  },
-
-  navigate: function() {
-    var $el = App.$el.find(".item-detail");
-
-    if (this.direction === 'right') {
-      $el.toggle('slide', {direction: 'left', duration: this.duration});
-      $el.toggle('slide', {direction: 'right', duration: this.duration});
-    } else if (this.direction === 'left') {
-      $el.toggle('slide', {direction: 'right', duration: this.duration});
-      $el.toggle('slide', {direction: 'left', duration: this.duration});
+    if (App.lastId) {
+      this.slide();
     }
   },
 
-  initialize: function(options) {
-    this.direction = options.direction;
-    this.currentId = options.currentId;
+  navigate: function(e) {
+    e.preventDefault();
+    App.lastId = this.model.get('id');
+  },
+
+  slide: function() {
+    var transition = App.lastId < this.model.get('id') ? 'right' : 'left';
+    var $itemDetail = this.$('.item-detail');
+
+    if (transition === 'right') {
+      $itemDetail.toggle('slide', {direction: 'left', duration: this.duration});
+      $itemDetail.toggle('slide', {direction: 'right', duration: this.duration});
+    } else if (transition === 'left') {
+      $itemDetail.toggle('slide', {direction: 'right', duration: this.duration});
+      $itemDetail.toggle('slide', {direction: 'left', duration: this.duration});
+    }
+  },
+
+  initialize: function() {
     this.render();
   }
 });

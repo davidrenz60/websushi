@@ -47,17 +47,11 @@ this["JST"]["checkout"] = Handlebars.template({"1":function(container,depth0,hel
 },"useData":true});
 
 this["JST"]["info"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return "<div class=\"item-detail\">"
-    + ((stack1 = container.invokePartial(partials.itemDetail,depth0,{"name":"itemDetail","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "</div>";
-},"usePartial":true,"useData":true});
-
-this["JST"]["itemDetail"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression, alias5=container.lambda;
 
-  return "<a href=\"/menu/"
+  return "<div class=\"item-detail\"><a href=\"/menu/"
+    + alias4(((helper = (helper = helpers.prevId || (depth0 != null ? depth0.prevId : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"prevId","hash":{},"data":data}) : helper)))
+    + "\" class=\"nav\" data-id=\""
     + alias4(((helper = (helper = helpers.prevId || (depth0 != null ? depth0.prevId : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"prevId","hash":{},"data":data}) : helper)))
     + "\"></a><img src=\""
     + alias4(((helper = (helper = helpers.image || (depth0 != null ? depth0.image : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"image","hash":{},"data":data}) : helper)))
@@ -81,7 +75,9 @@ this["JST"]["itemDetail"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main
     + alias4(alias5(((stack1 = (depth0 != null ? depth0.nutrition : depth0)) != null ? stack1.sugar : stack1), depth0))
     + "</td></tr></table></div><a href=\"/menu/"
     + alias4(((helper = (helper = helpers.nextId || (depth0 != null ? depth0.nextId : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"nextId","hash":{},"data":data}) : helper)))
-    + "\"></a>";
+    + "\" class=\"nav\" data-id=\""
+    + alias4(((helper = (helper = helpers.nextId || (depth0 != null ? depth0.nextId : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"nextId","hash":{},"data":data}) : helper)))
+    + "\"></a></div>";
 },"useData":true});
 
 this["JST"]["items"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {

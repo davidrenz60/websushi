@@ -1,11 +1,16 @@
 var CartView = Backbone.View.extend({
   template: JST.cart,
   el: '#cart',
+  $cartTotal: $('#cart-total'),
   duration: 300,
 
   events: {
     'click a.delete': 'destroy',
     'click a.empty': 'emptyCart',
+  },
+
+  updateCartQuantity: function() {
+    this.$cartTotal.text(this.collection.length);
   },
 
   open: function() {
@@ -19,6 +24,8 @@ var CartView = Backbone.View.extend({
   },
 
   render: function() {
+    this.updateCartQuantity();
+
     if (this.collection.length === 1) {
       this.open();
     } else if (this.collection.length === 0) {

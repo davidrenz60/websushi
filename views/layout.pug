@@ -29,4 +29,5 @@ html
     +javascript_include_tag('views/items', 'views/itemInfo', 'views/cart', 'views/checkout')
     script(type="text/javascript").
       App.items = new Items(!{JSON.stringify(items)});
+      App.createCart();
     +javascript_include_tag('router')

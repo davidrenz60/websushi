@@ -13,11 +13,8 @@ var router = new (Backbone.Router.extend({
   },
 
   index: function() {
-    if (App.menu) {
-      App.menuView();
-    } else {
-      App.init();
-    }
+    App.menuView();
+    App.lastId = '';
   },
 
   initialize: function() {

@@ -50,6 +50,6 @@ var CheckoutView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
-    this.listenTo(this.collection, 'change', this.render.bind(this));
+    this.listenTo(this.collection, 'change cart_updated cart_empty', this.render.bind(this));
   }
 });
