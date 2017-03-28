@@ -38,7 +38,7 @@ var CheckoutView = Backbone.View.extend({
   reset: function(e) {
     e.preventDefault();
     this.collection.reset();
-    history.back();
+    router.navigate('/', { trigger: true });
   },
 
   render: function() {
