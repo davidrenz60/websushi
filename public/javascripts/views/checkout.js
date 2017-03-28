@@ -37,7 +37,7 @@ var CheckoutView = Backbone.View.extend({
 
   reset: function(e) {
     e.preventDefault();
-    this.collection.empty();
+    this.collection.reset();
     history.back();
   },
 
